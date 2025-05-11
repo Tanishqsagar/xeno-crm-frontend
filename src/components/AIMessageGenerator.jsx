@@ -99,7 +99,7 @@ function AIMessageGenerator() {
     
     try {
       // Make sure the endpoint matches your backend route
-      const res = await api.post('/generate', { productName, customerType });
+      const res = await api.post('/api/ai/generate', { productName, customerType });
       
       if (res.data && res.data.message) {
         setMessage(res.data.message);
