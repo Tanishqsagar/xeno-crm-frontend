@@ -18,7 +18,7 @@ function Navbar() {
       </div>
 
       <div className="flex items-center gap-1 md:gap-3">
-        {user && (
+        
           <>
             <Link
               to="/create"
@@ -52,7 +52,6 @@ function Navbar() {
               <span className="hidden md:inline">AI Generator</span>
             </Link>
           </>
-        )}
 
         <div className="ml-2">
           {user ? (
