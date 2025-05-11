@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 function Navbar() {
-  const { user } = useAuth();
+  const {  user, login, logout, loading  } = useAuth();
 
   return (
     <nav className="bg-gradient-to-r from-slate-900 to-indigo-900 text-white px-6 py-4 flex items-center justify-between shadow-lg">

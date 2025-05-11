@@ -9,7 +9,7 @@ import AIMessageGenerator from './components/AIMessageGenerator';
 
 
 function App() {
-  const { user } = useAuth();
+  const {  user, login, logout, loading  } = useAuth();
 
   return (
     <AuthContext.Provider value={{ user,login,fetchUser }}>
