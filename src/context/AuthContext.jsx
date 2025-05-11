@@ -52,18 +52,9 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // const logout = () => {
-  //   setUser(null); // Clear the user on logout
-  // };
-
-  const logout = async () => {
-  try {
-    await axios.post(`${import.meta.env.VITE_API_BASE_URL}/auth/logout`, {}, { withCredentials: true });
-    setUser(null); // Clear user state on logout
-  } catch (error) {
-    console.error("Logout failed", error);
-  }
-};
+  const logout = () => {
+    setUser(null); // Clear the user on logout
+  };
 
   return (
     <AuthContext.Provider value={{ user, login, logout }}>
