@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
 
   const fetchUser = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/auth/me', {
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/auth/me`, {
         withCredentials: true
       });
       setUser(res.data.user);
