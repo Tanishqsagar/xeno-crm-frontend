@@ -8,12 +8,11 @@ import { useAuth } from './context/AuthContext';
 import AIMessageGenerator from './components/AIMessageGenerator';
 
 
-
 function App() {
   const { user } = useAuth();
 
   return (
-    <>
+    <AuthContext.Provider value={{ user,login,fetchUser }}>
       <Navbar></Navbar>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -24,7 +23,7 @@ function App() {
           <Route path="/create" element={<CreateCampaign />} />
           <Route path="/ai-generator" element={<AIMessageGenerator />} />
         </Routes>
-    </>
+    </AuthContext.Provider>
   );
 }
 
