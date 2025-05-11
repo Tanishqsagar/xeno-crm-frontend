@@ -59,7 +59,7 @@ function Navbar() {
             <div className="flex items-center gap-2">
               <span className="text-sm text-slate-300 hidden md:inline">{user.displayName}</span>
               <a
-                href="http://localhost:5000/auth/logout"
+                href={`${import.meta.env.VITE_API_BASE_URL}/auth/logout`}
                 className="px-3 py-1 text-sm rounded-md bg-red-500 hover:bg-red-600"
               >
                 Logout
@@ -67,7 +67,7 @@ function Navbar() {
             </div>
           ) : (
             <a
-              href="http://localhost:5000/auth/google"
+              href={`${import.meta.env.VITE_API_BASE_URL}/auth/google`}
               className="px-3 py-1 text-sm rounded-md bg-indigo-600 hover:bg-indigo-700"
             >
               Login with Google
