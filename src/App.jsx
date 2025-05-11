@@ -12,7 +12,7 @@ function App() {
   const {  user, login, logout, loading  } = useAuth();
 
   return (
-    <>
+    <AuthContext.Provider value={{ user,login,fetchUser }}>
       <Navbar></Navbar>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -20,7 +20,7 @@ function App() {
           {user && <Route path="/create" element={<CreateCampaign />} />}
           {user && <Route path="/ai-generator" element={<AIMessageGenerator />} />}
         </Routes>
-    </>
+    </AuthContext.Provider>
   );
 }
 
