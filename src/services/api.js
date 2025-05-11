@@ -1,7 +1,4 @@
 import axios from 'axios';
-import dotconfig from 'dotenv';
-dotconfig.config();
-
 
 
 const api = axios.create({
