@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'; // For animations
+import { motion } from 'framer-motion'; 
 
 export default function HeroSection() {
   return (
