@@ -59,7 +59,7 @@ function Navbar() {
             <div className="flex items-center gap-2">
               <span className="text-sm text-slate-300 hidden md:inline">{user.displayName}</span>
               <a
-                href={`${import.meta.env.VITE_API_BASE_URL}/auth/lo`}
+                href={`${import.meta.env.VITE_API_BASE_URL}/auth/logout`}
                 className="px-3 py-1 text-sm rounded-md bg-red-500 hover:bg-red-600"
               >
                 Logout
