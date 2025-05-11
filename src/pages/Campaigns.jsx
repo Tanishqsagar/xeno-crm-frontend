@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import api from '../services/api';
 
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
+
 function Campaigns() {
   const [campaigns, setCampaigns] = useState([]);
   const [logs, setLogs] = useState([]);
@@ -13,7 +15,7 @@ function Campaigns() {
 
   const fetchCampaigns = async () => {
     try {
-      const res = await api.get('http://localhost:5000/api/campaigns');
+      const res = await api.get(`${baseUrl}/api/campaigns`);
       setCampaigns(res.data);
     } catch (err) {
       console.error(err);
@@ -22,7 +24,7 @@ function Campaigns() {
 
   const fetchLogs = async (campaignId) => {
     try {
-      const res = await api.get(`http://localhost:5000/api/campaigns/${campaignId}/logs`);
+      const res = await api.get(`${baseUrl}/api/campaigns/${campaignId}/logs`);
       setLogs(res.data);
       setSelectedId(campaignId);
     } catch (err) {

@@ -2,6 +2,8 @@ import { useState } from 'react';
 import axios from 'axios';
 import api from '../services/api';
 
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
+
 const fields = ['totalSpend', 'visits', 'lastActive'];
 const operators = ['>', '<', '>=', '<=', '==', '!='];
 
@@ -30,7 +32,7 @@ function CreateCampaign() {
 
   const handleSubmit = async () => {
     try {
-      const res = await api.post('http://localhost:5000/api/campaigns', {
+      const res = await api.post(`${baseUrl}/api/campaigns`, {
         name,
         rules
       });
