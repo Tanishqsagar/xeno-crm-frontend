@@ -27,7 +27,7 @@
 
 // export default App;
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import Home from './pages/Home';
 import Campaigns from './pages/Campaigns';
@@ -37,13 +37,19 @@ import { useAuth } from './context/AuthContext';
 import AIMessageGenerator from './components/AIMessageGenerator';
 
 function App() {
-  const { user } = useAuth();
-  const navigate = useNavigate(); // Initialize useNavigate hook
+  const { user, fetchUser } = useAuth();
+  const navigate = useNavigate();
 
-  // Redirect the user to the campaigns page after successful login
-  if (user) {
-    navigate('/campaigns');
-  }
+  // Fetch user on app load
+  useEffect(() => {
+    fetchUser();
+  }, [fetchUser]);
+
+  useEffect(() => {
+    if (user) {
+      navigate('/campaigns'); // Redirect to campaigns page after login
+    }
+  }, [user, navigate]); // This effect runs whenever `user` is updated
 
   return (
     <>
@@ -57,7 +63,7 @@ function App() {
             <Route path="/ai-generator" element={<AIMessageGenerator />} />
           </>
         ) : (
-          <Route path="*" element={<Navigate to="/" />} /> // Redirect non-authenticated users
+          <Route path="*" element={<Navigate to="/" />} />
         )}
       </Routes>
     </>
