@@ -14,7 +14,7 @@ function AIMessageGenerator() {
     setMessage('');
 
     try {
-      const res = await api.post('/ai/generate', { productName, customerType });
+      const res = await api.post(`${import.meta.env.VITE_API_BASE_URL}/generate`, { productName, customerType });
       setMessage(res.data.message);
     } catch (err) {
       console.error(err);
