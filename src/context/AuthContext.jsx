@@ -6,17 +6,21 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const fetchUser = async () => {
-    try {
-      const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/auth/me`, {
-        withCredentials: true
-      });
-      setUser(res.data.user);
-    } catch {
-      setUser(null);
-    }
-  };
+  
+const fetchUser = async () => {
+  try {
+    const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/auth/me`, {
+      withCredentials: true
+    });
+    setUser(res.data.user);
+  } catch {
+    setUser(null);
+  } finally {
+    setLoading(false);
+  }
+};
 
   useEffect(() => {
     fetchUser();
